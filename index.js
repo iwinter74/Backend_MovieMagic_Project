@@ -34,36 +34,16 @@ app.get('/', (req, res) => {
         .then(res => res.json())
         .then(json => {
             data = json.results;
-            // console.log(json)
-            // console.log(data.length)
             res.status(200).render('index', { movies: data})
         })
         .catch(err => console.log(err))
 })
-
-// let page=1
-// app.get('/pages/:id', (req, res) => {
-//     fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.apiKey}&page=${req.params.id} `)
-//         .then(res => res.json())
-//         .then(json => {
-//             data = json.results;
-            
-//             // console.log(json)
-//             // console.log(data.length)
-//             page++;
-//             res.render('index', { movies: data,page})
-//         })
-//         .catch(err => console.log(err))
-// })
-
-
 
 app.get('/details/:id', (req, res) => {
     fetch(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${process.env.apiKey}&language=en-US`)
         .then(res => res.json())
         .then(json => {
             data = json;
-            // console.log(data)
             res.status(200).render('details', { details: data })
         })
         .catch(err => console.log(err))
@@ -75,7 +55,6 @@ app.get('/details/:id/add', (req, res) => {
         .then(res => res.json())
         .then(json => {
             data = json;
-            // console.log(data);
             newItem = new MovieItem({
                 poster_path: data.poster_path,
                 original_title: data.original_title,
@@ -118,7 +97,7 @@ app.get('/details/:id/delete', (req, res) => {
         .catch(err => console.log(err))
 })
 
-app.post('/new', (req, res) => {
+app.post('/search', (req, res) => {
     query = req.body.search
     console.log(query)
     fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.apiKey}&language=en-US&query=${query}&page=1&include_adult=false`)
@@ -126,23 +105,7 @@ app.post('/new', (req, res) => {
         .then(json => {
             data = json.results;
             console.log(data)
-            data.forEach(element => {
-                if (element.media_type == "movie") {
-                    newItem = new MovieItem({
-                        poster_path: element.poster_path,
-                        original_title: element.original_title,
-                        overview: element.overview,
-                        release_date: element.release_date,
-                        genres: element.genres,
-                        genre_ids: element.genre_ids,
-                        id: element.id,
-                        vote_average: element.vote_average,
-                        popularity: element.popularity
-                    })
-                    newItem.save()
-                }
-            });
-            res.status(200).redirect('/myShows')
+            res.status(200).render('search', { movies: data})
         })
         .catch(err => console.log(err))
 })

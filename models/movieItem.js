@@ -19,13 +19,9 @@ const movieItemSchema = new Schema(
             type: Number,
             requitred: true
         },
-        genre_ids: {
-            type: Array,
-            required: false
-        },
         genres: {
             type: Array,
-            required: false
+            required: true
         },
         overview: {
             type: String,
