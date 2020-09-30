@@ -1,0 +1,20 @@
+<%-include('./partials/header') %>
+
+<section class="hero">
+
+    <% movies.forEach(element => { %>
+    <div>
+        <img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> " alt="">
+        <h2><%= element.original_title %> </h2>
+        <p><%=  element.overview %></p>
+        <a class="btn" href="/detailsDb/<%= element._id %> ">See More</a>
+
+    </div>
+    <% }) %>
+
+
+</section>
+
+</body>
+
+</html>

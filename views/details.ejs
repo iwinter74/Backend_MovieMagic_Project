@@ -1,0 +1,33 @@
+<%-include('./partials/header') %>
+
+<section class="details">
+    <img class="poster" src="https://image.tmdb.org/t/p/w500<%=  details.poster_path %> " alt="">
+    <div class="rating">
+        <img src="/img/Star.png" alt="">
+        <p class="vote"><%= details.vote_average %> <span>/10</span></p>
+        <p class="popularity"><%= details.popularity %> </p>
+    </div>
+    <div class="plus">
+        <a href="/details/<%=  details.id%>/add"> <img src="/img/plus.png" alt=""> </a>
+        <h1>Add to favourites</h1>
+    </div>
+    <div class="title">
+        <h1><%=  details.original_title %> </h1>
+        <span class="release"><%=  details.release_date %> </span> <span class="release">Released</span>
+    </div>
+    <div class="genres">
+        <% details.genres.forEach(element => { %>
+        <span class="btn"><%=  element.name %> </span>
+        <% }) %>
+    </div>
+    <div class="plot">
+        <h2>Plot Summary</h2>
+        <p><%=  details.overview %></p>
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

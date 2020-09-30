@@ -1,0 +1,53 @@
+<%-include('./partials/header') %>
+
+<section id="home" class="hero">
+
+    <% movies.forEach(element => { %>
+    <div>
+        <a href="/details/<%= element.id %> "><img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> "
+                alt=""></a>
+        <h2><%= element.original_title %> </h2>
+    </div>
+
+    <% }) %>
+
+</section>
+<!-- <footer>
+<a id="more" href="">></a>
+<a id="less" href=""><</a>
+ 
+</footer> -->
+<script>
+
+// let more = document.getElementById("more")
+// let less = document.getElementById("less")
+// let page = 1
+// more.href=`/pages/${page}`
+// more.addEventListener("click", (e) => {
+//     page ++
+//     console.log(page)
+//     more.href=`/pages/${page}`
+//     // e.preventDefault()
+//     // return page
+
+// })
+
+// less.addEventListener("click", (e) => {
+//     if (page == 1) {
+//         page = page
+//     }
+//     else {
+//         page --
+//     }
+//     console.log(page)
+//     e.preventDefault()
+//     return page
+
+// })
+
+
+</script>
+
+</body>
+
+</html>
