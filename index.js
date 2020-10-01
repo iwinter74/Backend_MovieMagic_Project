@@ -132,8 +132,13 @@ app.get('/details/:id/delete', (req, res) => {
 
 app.post('/search', (req, res) => {
     query = req.body.search
-    // console.log(query)
-    fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.apiKey}&language=en-US&query=${query}&page=1&include_adult=false`)
+    console.log(query)
+    res.status(200).redirect(`/search/${query}`)
+})
+
+app.get('/search/:id', (req, res) => {
+    console.log("test", req)
+    fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.apiKey}&language=en-US&query=${req.params.id}&page=1&include_adult=false`)
         .then(res => res.json())
         .then(json => {
             data = json.results;
