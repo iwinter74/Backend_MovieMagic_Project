@@ -7,7 +7,6 @@ var moviesArr = []
 var newItem
 
 
-
 const app = express()
 const port = 3001
 require('dotenv').config()

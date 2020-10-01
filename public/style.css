@@ -179,5 +179,43 @@ input[type=submit] {
     text-decoration: underline;
 }
 
+@media only screen and (max-width: 320px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 2em
+    }
+    header {
+        flex-direction: column;
+    }
+    input[type=search] {
+        height: 30px;
+        width: 120px;
+    }
+    input[type=submit] {
+        padding: 0.1em 2em
+    }
+    .rating {
+        width: 15%;
+        border-radius: 20px 0 0 20px;
+    }
+    .vote span {
+        font-size: 0.7em
+    }
+    .details h1 {
+        font-size: 1.5em
+    }
+    .title, .genres, .plot, .plus {
+        padding-left: 3em;
+    }
+    .plot {
+        width: 100%;
+        padding-right: 2em
+    }
+    .popularity, .vote {
+        font-size: 0.8em
+    }
+}
+
 
 
