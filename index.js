@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const MovieItem = require('./models/movieItem.js');
 const fetch = require('node-fetch');
 let query = ""
-var moviesArr = []
 var newItem
 
 
