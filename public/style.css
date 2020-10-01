@@ -20,7 +20,7 @@ header a {
     color: white;
     text-decoration: none;
 }
-textarea{
+input[type=search]{
     background: #333333;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 200px;
@@ -29,7 +29,6 @@ textarea{
     position: relative;
     color: white;
     text-align: center;
-    padding: 0.5em;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -40,18 +39,18 @@ form {
     margin: 1em
 }
 
-input {
+input[type=submit] {
     background: #FFFFFF;
     border: 1.5px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 50px;
-    margin-left: 1em;
+    margin-left: 2em;
     padding: 0.5em 5em;
 }
 
 #icon {
     position: absolute;
-    left: 30%;
+    left: 33%;
     width: 20px;
     z-index: 1;
 }
@@ -175,6 +174,9 @@ input {
 .plot {
     padding-bottom: 4em;
     width: 60%
+}
+.active {
+    text-decoration: underline;
 }
 
 

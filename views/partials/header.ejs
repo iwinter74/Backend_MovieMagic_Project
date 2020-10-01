@@ -8,12 +8,15 @@
 </head>
 <body>
 <header>
-<a href="/">MOVIEMAGIC</a>
+<a class="<%= activeNav == '/'? 'active' : ''  %> " href="/">MOVIEMAGIC</a>
 <form action="/search" method="POST">
     <img id="icon" src="/img/Search.png" alt="">
-    <textarea name="search" id="" cols="30" rows="10"></textarea>
+    <input type="search" name="search" id="">
     <input type="submit" value="Search">
 </form>
-<a href="/myShows">MySHOWS</a>
+<a class="<%= activeNav == '/myShows'? 'active' : ''  %> " href="/myShows">MySHOWS</a>
 
 </header>
+
+
+ 
