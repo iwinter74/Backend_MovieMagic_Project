@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const MovieItem = require('./models/movieItem.js');
 const fetch = require('node-fetch');
 let query = ""
-var newItem
+let newItem
 
 
 const app = express()
@@ -81,28 +81,6 @@ app.get('/details/:id/add', (req, res) => {
         })
         .catch(err => console.log(err))
 })
-
-// app.get('/details/:id/add', (req, res) => {
-//     console.log('add ' + req.params.id)
-//     fetch(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${process.env.apiKey}&language=en-US`)
-//         .then(res => res.json())
-//         .then(json => {
-//             data = json;
-//             newItem = new MovieItem({
-//                 poster_path: data.poster_path,
-//                 original_title: data.original_title,
-//                 overview: data.overview,
-//                 release_date: data.release_date,
-//                 genres: data.genres,
-//                 id: data.id,
-//                 vote_average: data.vote_average,
-//                 popularity: data.popularity
-//             })
-//             newItem.save()
-//             res.status(200).redirect('/myShows')
-//     })
-//     .catch(err => console.log(err))
-// })
 
 app.get('/myShows', (req, res) => {
     MovieItem.find()
